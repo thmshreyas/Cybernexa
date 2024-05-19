@@ -4,7 +4,7 @@ import requests
 
 app = Flask(__name__)
 
-SHODAN_API_KEY = "sP0jZedwmwja7nRupTLHFjsRW17fOSH0"
+SHODAN_API_KEY = "API_KEY"
 api = shodan.Shodan(SHODAN_API_KEY)
 
 @app.route('/url', methods=['POST', 'GET'])
