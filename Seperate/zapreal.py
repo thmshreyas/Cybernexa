@@ -5,7 +5,7 @@ from threading import Thread
 # The URL of the application to be tested
 target = 'https://spice-3-0.onrender.com/'
 # Change to match the API key set in ZAP, or use None if the API key is disabled
-apiKey = 'sdb8qi4npgtdbob8o0n13bai0a'
+apiKey = 'APIKEY'
 
 # By default ZAP API client will connect to port 8080
 zap = ZAPv2(apikey=apiKey)
