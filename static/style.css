@@ -1,0 +1,77 @@
+.container-fluid{
+    background:  #45a29e ;
+    padding: 0px;
+    margin: 0px;
+    color: azure;
+    font-size: larger;
+   
+}
+.container marketing{
+    background-color: black;
+}
+#mycorousel{
+    padding-top:90px;
+}
+.btn {  background-color:#1F2833;
+    color: #C5C6C7;
+    padding: auto;
+    margin: 20px;
+   
+    
+}
+.btn .btn-outline-success{
+    border-color: hsl(49, 80%, 49%);
+    color: #f3d218;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-outline-success:hover { background-color:#45a29e ;
+    columns: white
+    ;
+  
+}
+.bd-placeholder-img1{
+    background-image: url('../static/1.jpeg');
+}
+svg{
+    height: 400px;
+}
+.carousel-inner{
+margin-top: 60px;
+
+}
+.bd-placeholder-img{
+    background-color: black;
+}
+
+.container{
+    background-color: black;
+    color: white;
+    
+    padding:auto ;
+}
+.carousel-caption{
+    color: white;
+}
+
+.carousel slide pointer-event{
+    background-image: url("");
+
+}
+body{
+    background-color: black;
+}
+.w3-btn {
+background-color: #45a29e;
+color:#C5C6C7;
+border-radius: 13px;
+border-top: #45a29e;
+border-bottom: color #45a29e;
+border-left: #45a29e;
+padding: 10px;
+}
+.carousel-inner{
+    height: 400px;
+    
+    
+
+}

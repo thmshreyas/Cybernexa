@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vulnerability Information</title>
+</head>
+<body>
+    <h1>Vulnerability Information</h1>
+    {% for item in response_data.data.search %}
+        <div>
+            <h3>CVE ID: {{ item._id }}</h3>
+            <p>CVSS Score: {{ item._source.cvss.score }}</p>
+            <p>Description: {{ item._source.description }}</p>
+            <p>Published Date: {{ item._source.published }}</p>
+            <p>Last Modified Date: {{ item._source.modified }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+</body>
+</html>

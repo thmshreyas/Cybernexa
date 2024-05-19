@@ -1,0 +1,41 @@
+
+.card-body{
+    background-color: #1F2833;
+    color: #C5C6C7; 
+}
+
+.my-0 fw-normal{
+    background-color: black;
+  
+}
+.card-header{
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    background-color: #66FCF1 !important;
+}
+.w-100:hover, .w-100:active {
+    background-color: #66FCF1 !important;
+    border: solid #45a29e !important;
+    color:#1F2833 !important;
+    transition: outline-color 0.3s ease-in-out; 
+}
+.w-100{
+    
+        border: solid #45a29e!important;
+        color:#45a29e !important;
+        transition: outline-color 0.3s ease-in-out; 
+}
+.d-flex{
+    background-color:black;
+    color:#66FCF1 !important;
+}
+.card{
+    padding-bottom: 10px;
+    background-color:rgb(20, 33, 61) ;
+    border: 2px solid black;
+    
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Nexa</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: black;
+           
+
+        }
+        .navbar {
+            background:#007b8a;
+            border-color: solid #11635d;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color:#007b8a!important;
+            color: #66fcf1 !important;
+        } 
+        .nav-link {
+            color: #ffffff !important;
+        }
+        .container {
+            margin-top: 50px;
+           
+        }
+        .card {
+            border-radius: 20px;
+    
+            background-color:#007b8a;
+            color: black;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            background:#11d7ca;
+            color: black;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-size: 1.25rem;
+            text-align: center;
+            padding: 15px;
+        }
+        .card-body {
+            padding: 30px;
+        }
+        .btn-scan {
+            background: #66fcf1;
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        .btn-scan:hover {
+            background:#ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Cyber Nexa</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+               
+                <li class="nav-item">
+                    <button class="btn btn-scan"  onclick="fun()">Logout</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Scan Your Target</div>
+                <div class="card-body">
+                    <form method="post" action="#">
+                        <div class="form-group">
+                            <label for="inputText">Enter Text:</label>
+                            <input type="text" class="form-control" id="inputText" placeholder="Enter text to scan" name="url">
+                        </div>
+                        <button type="submit" name="submit" value="submit"class="btn btn-scan" >Scan</button>
+                    </form>
+                    <h1>{{number}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyAO20AtTcqFceRK7bJerpD8t0WA_78gtoE",
+        authDomain: "new-login-auth-f8f2b.firebaseapp.com",
+        projectId: "new-login-auth-f8f2b",
+        storageBucket: "new-login-auth-f8f2b.appspot.com",
+        messagingSenderId: "523987560093",
+        appId: "1:523987560093:web:1ab08da09df77fde3e5674",
+        measurementId: "G-W9F95PECNV"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    document.getElementById("login").addEventListener("click", function() {
+        var email = document.getElementById("login_email").value;
+        var password = document.getElementById("login_password").value;
+
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+            alert(user.email + " logged in successfully!");
+            document.getElementById('logout').style.display = 'block';
+            window.location.href = 'services.html'; // Redirect to services.html
+        })
+        .catch((error) => {
+            const errorMessage = error.message;
+            console.log(errorMessage);
+            alert(errorMessage);
+        });
+    });
+
+    document.getElementById("logout").addEventListener("click", function() {
+        signOut(auth).then(() => {
+            console.log('Sign-out successful.');
+            alert('Sign-out successful.');
+            window.location.href = '/'; // Redirect to index.html
+        }).catch((error) => {
+            console.log('An error happened.');
+            alert('An error happened.');
+        });
+    });
+   
+</script>
+<script>
+    function fun(){
+    window.location.href='/';
+}
+</script>
+</html>

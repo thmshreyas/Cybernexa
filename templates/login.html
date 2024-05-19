@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Firebase Login</title>
+    <style>
+        body {
+            background-color: #2c3e50; /* Dark background */
+            color: #ecf0f1; /* Light text color */
+        }
+        .navbar-default {
+            background-color: #1a252f; /* Dark navbar background */
+            border-color: #1a252f;
+        }
+        .navbar-brand {
+            color: #ecf0f1 !important; /* Navbar brand color */
+        }
+        .navbar-nav > li > a {
+            color: #ecf0f1 !important; /* Navbar link color */
+        }
+        .card {
+            background-color: #34495e; /* Dark card background */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .form-control {
+            background-color: #2c3e50; /* Dark input background */
+            color: #ecf0f1; /* Light input text color */
+            border: 1px solid #7f8c8d;
+        }
+        .btn-success {
+            background-color: #27ae60; /* Custom button color */
+            border-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar navbar-default">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="https://www.shinerweb.com">Cybernexa</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li><button class="btn btn-success btn-block" onclick="fun()">Sign in</button></li>
+        </ul>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="card">
+                <form name="login_form" id="login_form" method="post" action="#" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" name="login_email" id="login_email" class="form-control" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="login_password" id="login_password" class="form-control" placeholder="Enter your password">
+                    </div>
+                    <button type="button" id="login" name="login" class="btn btn-success btn-block">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" id="logout" style="display: none;">Log Out</a></li>
+    </ul>
+</div>
+<br>
+
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyAO20AtTcqFceRK7bJerpD8t0WA_78gtoE",
+        authDomain: "new-login-auth-f8f2b.firebaseapp.com",
+        projectId: "new-login-auth-f8f2b",
+        storageBucket: "new-login-auth-f8f2b.appspot.com",
+        messagingSenderId: "523987560093",
+        appId: "1:523987560093:web:1ab08da09df77fde3e5674",
+        measurementId: "G-W9F95PECNV"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    document.getElementById("login").addEventListener("click", function() {
+        var email = document.getElementById("login_email").value;
+        var password = document.getElementById("login_password").value;
+
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+            alert(user.email + " logged in successfully!");
+            document.getElementById('logout').style.display = 'block';
+            window.location.href = '/services'; // Redirect to services.html
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage);
+            alert(errorMessage);
+        });
+    });
+
+    document.getElementById("logout").addEventListener("click", function() {
+        signOut(auth).then(() => {
+            console.log('Sign-out successful.');
+            alert('Sign-out successful.');
+            window.location.href='/';
+            document.getElementById('logout').style.display = 'none';
+        }).catch((error) => {
+            console.log('An error happened.');
+            alert('An error happened.');
+        });
+    });
+</script>
+<script>
+    function fun(){
+        window.location.href='/registration';
+        
+    }
+</script>
+</body>
+</html>

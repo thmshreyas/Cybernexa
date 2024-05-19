@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ZAP Scan Results</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>ZAP Scan Results</h1>
+    <h2>Spider Results:</h2>
+    <ul>
+        {% for result in spider_results %}
+            <li>{{ result }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Hosts:</h2>
+    <ul>
+        {% for host in hosts %}
+            <li>{{ host }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Alerts:</h2>
+    <table>
+        <tr>
+            <th>Alert</th>
+            <th>URL</th>
+            <th>Risk Level</th>
+            <th>Description</th>
+            <th>Solution</th>
+            <th>Other</th>
+            <th>Reference</th>
+        </tr>
+        {% for alert in alerts %}
+            <tr>
+                <td>{{ alert.get('alert', 'N/A') }}</td>
+                <td>{{ alert.get('url', 'N/A') }}</td>
+                <td>{{ alert.get('risk', 'N/A') }}</td>
+                <td>{{ alert.get('description', 'N/A') }}</td>
+                <td>{{ alert.get('solution', 'N/A') }}</td>
+                <td>{{ alert.get('otherinfo', 'N/A') }}</td>
+                <td>{{ alert.get('reference', 'N/A') }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
