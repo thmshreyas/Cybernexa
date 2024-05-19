@@ -2,7 +2,7 @@ import shodan
 import json
 import requests
 
-SHODAN_API_KEY = "sP0jZedwmwja7nRupTLHFjsRW17fOSH0"
+SHODAN_API_KEY = "APIKEY"
 api = shodan.Shodan(SHODAN_API_KEY)
 
 enter = input("Enter IP address: ")
