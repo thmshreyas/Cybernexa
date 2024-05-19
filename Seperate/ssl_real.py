@@ -5,7 +5,7 @@ url = "https://check-ssl.p.rapidapi.com/sslcheck"
 querystring = {"domain":"amazon.com"}
 
 headers = {
-    "X-RapidAPI-Key": "4c38c122fcmsh82e6abd326c09efp1b9f96jsne2361a2bb7c7",
+    "X-RapidAPI-Key": "APIKEY",
     "X-RapidAPI-Host": "check-ssl.p.rapidapi.com"
 }
 
