@@ -8,7 +8,7 @@ import time
 from zapv2 import ZAPv2
 from threading import Thread
 
-SHODAN_API_KEY = "sP0jZedwmwja7nRupTLHFjsRW17fOSH0"
+SHODAN_API_KEY = "APIKEY"
 api = shodan.Shodan(SHODAN_API_KEY)
 
 
@@ -103,7 +103,7 @@ def cve():
             Url = 'https://vulners.com/api/v3/search/lucene/'
             software_list = ["Apache", "Nginx", "WordPress", "PHP", "MySQL", "Drupal"]  # Add more software names as needed
 
-            api_key = "8D0YU2TBX6J7CGWXD8TC12ZB8T3JCGDGWW0440RNNEG7SQ0G3P9ZJVZIW5L1AQ4O"  # Replace with your actual API key
+            api_key = "APIKEY"  # Replace with your actual API key
 
             for software in software_list:
                         data = {
@@ -141,7 +141,7 @@ def imagescan():
             querystring = {"domain":"amazon.com"}
 
             headers = {
-                        "X-RapidAPI-Key": "4c38c122fcmsh82e6abd326c09efp1b9f96jsne2361a2bb7c7",
+                        "X-RapidAPI-Key": "APIKEY",
                           "X-RapidAPI-Host": "check-ssl.p.rapidapi.com"
             }
 
@@ -174,7 +174,7 @@ def imagescan():
 
 def zapy():
     # Define the ZAP object
-    apiKey = 'sdb8qi4npgtdbob8o0n13bai0a'
+    apiKey = 'APIKEY'
     zap = ZAPv2(apikey=apiKey)
 
     target = 'https://spice-3-0.onrender.com/'
