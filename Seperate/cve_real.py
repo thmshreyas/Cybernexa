@@ -4,7 +4,7 @@ import json
 url = 'https://vulners.com/api/v3/search/lucene/'
 software_list = ["Apache", "Nginx", "WordPress", "PHP", "MySQL", "Drupal"]  # Add more software names as needed
 
-api_key = "API_KEY"  # Replace with your actual API key
+api_key = "API_KEY" 
 
 for software in software_list:
     data = {
